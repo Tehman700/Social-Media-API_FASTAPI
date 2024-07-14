@@ -11,6 +11,9 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
+# no idea why it is being used , i think. used ofor sqlalchemy models
+# ehich i didn;t used that concepts
+
 def get_db():
     db = SessionLocal()
     try:

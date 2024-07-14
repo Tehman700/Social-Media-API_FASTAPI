@@ -3,6 +3,14 @@ from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 
+
+# SO basicllay there are two ways to create tables in the
+# postgreqsl using the main app or GUI, or using this below system
+# refering as sql alchemy models,
+# the fact is this if there is previous tbale with same name alreday 
+# then it won't be updating, it first checks whether ther is a table or not
+# if yes then new changes won't be made, i mean new columns until we delete that table
+
 class Post(Base):
     __tablename__ = "posts"
 

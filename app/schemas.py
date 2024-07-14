@@ -2,6 +2,12 @@ from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional
 
+# allll schemas where we tell the frontend
+# that it is the pattern which we wnat and we expect your 
+# request to be in this form otherise get out
+# Also we can ensure the repsonse schmes so that we can choose 
+# whcih thing to show or not to the user, like passwords and etc
+# mostly inherited to reduce space
 
 class PostBase(BaseModel):
     title: str

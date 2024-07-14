@@ -11,6 +11,8 @@ router_user = APIRouter(
     tags=['All User Information']
 )
 
+
+# ensuring connection with database, if is wroong then trying agian and agian
 while True:
     try:
         conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres', password='admin', cursor_factory=RealDictCursor)
@@ -24,6 +26,9 @@ while True:
 
 @router_user.post("/users", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate):
+
+    # HASHING THE PASSWORD
+
     hashed = pwd_context.hash(user.password)
     user.password = hashed
     cursor.execute("INSERT INTO users (email, password) VALUES (%s, %s) RETURNING *", (user.email, user.password))
