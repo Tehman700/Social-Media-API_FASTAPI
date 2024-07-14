@@ -3,7 +3,7 @@ from .routers import post, user, auth
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+# This is where we allow for which websites we can test our API
 origins = ["*"]
 
 app.add_middleware(
